@@ -1,0 +1,29 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <time.h>
+
+int main() {
+    // ランダムな整数を生成するための準備
+    srand(time(NULL));
+
+    // 合計が20点になるように、各値をランダムに設定
+    int intelligence = rand() % 21;  // 0から20の範囲でランダム
+    int stamina = rand() % (21 - intelligence);  // 残りの点数を決める
+    int charisma = 20 - intelligence - stamina;  // 残りを魅力に割り当て
+
+    // 結果の表示
+    printf("Intelligence: %d\n", intelligence);
+    printf("Stamina: %d\n", stamina);
+    printf("Charisma: %d\n", charisma);
+
+    // クラス判定
+    if (intelligence > stamina && intelligence > charisma) {
+        printf("Class: Mage\n");
+    } else if (stamina > intelligence && stamina > charisma) {
+        printf("Class: Knight\n");
+    } else {
+        printf("Class: Thief\n");
+    }
+
+    return 0;
+}
